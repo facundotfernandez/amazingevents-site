@@ -5,46 +5,84 @@
     font-family: 'Barlow';
 }
 
-.navbar-toggler:focus {
-    box-shadow: 0px 0px 5px 5px rgb(217, 3, 104);
+.navbar-toggler:focus,
+#navbarHeaderNavArrows div h1 {
+    box-shadow: 0px 0px 5px 5px rgb(217, 3, 104) !important;
 }
 
 a.navbar-brand img,
-#main-banner div a img {
+#navbarHeaderNavArrows div a img {
     height: 3rem;
 }
 
-#navbarNavAltMarkup div a.active,
-#main-banner div a h1:hover {
-    background-color: rgb(217, 3, 104);
+#navbarHeaderNavTop div a.active,
+#navbarHeaderNavArrows div a h1:hover,
+form button[type="submit"]:hover,
+main nav div label:hover {
+    background-color: rgb(217, 3, 104) !important;
 }
 
-#navbarNavAltMarkup div a:hover, #main-banner div a img:hover {
+#navbarHeaderNavTop div a:hover,
+#navbarHeaderNavArrows div a img:hover {
     background-color: rgba(217, 3, 104, .5);
 }
 
-#main-banner {
+#navbarHeaderNavArrows {
     height: 6rem;
 }
 
-#main-banner div a img {
+#navbarHeaderNavArrows div a img, main nav form a img {
     filter: invert(15%) sepia(98%) saturate(7178%) hue-rotate(322deg) brightness(81%) contrast(116%);
 }
 
-#main-banner div a img,
-#main-banner div h1 {
-    box-shadow: 0px 0px 5px 5px rgb(217, 3, 104);
+main nav form a img {
+    height: 2.5rem!important;
 }
 
 h1 {
     text-transform: uppercase;
 }
 
+form a[type="submit"] {
+    border: 1px solid rgb(217, 3, 104);
+    border-radius: 0.5rem;
+}
+
+main form input:focus {
+    border: 1px solid rgb(217, 3, 104) !important;
+    box-shadow: 0px 0px 5px 1px rgb(217, 3, 104) !important;
+}
+
+#card-groupMain img {
+    height: 20vh;
+    object-fit: cover;
+}
+
+div.card-footer a:hover, form a[type="submit"]:hover {
+    box-shadow: 0px 0px 5px 1px rgb(217, 3, 104) !important;
+}
+
 @media (max-width: 576px) {
     h1 {
         font-size: 0.75rem;
     }
-    #main-banner div a img {
+
+    a.navbar-brand img,
+    #navbarHeaderNavArrows div a img {
         height: 2rem;
+    }
+}
+
+@media (max-width: 718px) {
+    main nav {
+        justify-content: center !important;
+    }
+
+    main nav div {
+        text-align: center;
+    }
+
+    main nav form {
+        padding-top: 0.5rem;
     }
 }
