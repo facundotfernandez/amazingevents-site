@@ -6,7 +6,8 @@
 }
 
 .navbar-toggler:focus,
-#navbarHeaderNavArrows div h1 {
+#navbarHeaderNavArrows div h1,
+form fieldset button[type="submit"] {
     box-shadow: 0px 0px 5px 5px rgb(217, 3, 104) !important;
 }
 
@@ -31,24 +32,26 @@ main nav div label:hover {
     height: 6rem;
 }
 
-#navbarHeaderNavArrows div a img, main nav form a img {
+#navbarHeaderNavArrows div a img,
+main nav form img {
     filter: invert(15%) sepia(98%) saturate(7178%) hue-rotate(322deg) brightness(81%) contrast(116%);
 }
 
-main nav form a img {
-    height: 2.5rem!important;
+main nav form img {
+    height: 2.5rem !important;
 }
 
 h1 {
     text-transform: uppercase;
 }
 
-form a[type="submit"] {
-    border: 1px solid rgb(217, 3, 104);
+form img {
+    border: 1px solid rgb(217, 3, 104)!important;
     border-radius: 0.5rem;
 }
 
-main form input:focus {
+main form input:focus,
+main form textarea:focus {
     border: 1px solid rgb(217, 3, 104) !important;
     box-shadow: 0px 0px 5px 1px rgb(217, 3, 104) !important;
 }
@@ -58,8 +61,13 @@ main form input:focus {
     object-fit: cover;
 }
 
-div.card-footer a:hover, form a[type="submit"]:hover {
+div.card-footer a:hover,
+form img:hover {
     box-shadow: 0px 0px 5px 1px rgb(217, 3, 104) !important;
+}
+
+table tbody tr td {
+    height: 3rem;
 }
 
 @media (max-width: 576px) {
