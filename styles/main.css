@@ -5,92 +5,124 @@
     font-family: 'Barlow';
 }
 
-.navbar-toggler:focus,
-#navbarHeaderNavArrows div h1,
-form fieldset button[type="submit"] {
-    box-shadow: 0px 0px 5px 5px rgb(217, 3, 104) !important;
+#NavHeaderPages-SiteLogo {
+    height: 3rem !important;
 }
 
-a.navbar-brand img,
-#navbarHeaderNavArrows div a img {
-    height: 3rem;
+#NavHeaderPages-CollapseIcon:focus {
+    box-shadow: 0px 0px 5px 2px rgb(217, 3, 104) !important;
+    border: 1px solid rgb(217, 3, 104) !important;
 }
 
-#navbarHeaderNavTop div a.active,
-#navbarHeaderNavArrows div a h1:hover,
-form button[type="submit"]:hover,
-main nav div label:hover {
+#NavHeaderPages .pages-page:hover {
+    background-color: rgb(217, 3, 104, .5) !important;
+}
+
+#NavHeaderPages .pages-page.active {
     background-color: rgb(217, 3, 104) !important;
 }
 
-#navbarHeaderNavTop div a:hover,
-#navbarHeaderNavArrows div a img:hover {
-    background-color: rgba(217, 3, 104, .5);
+#NavHeaderArrows a[href="#top"] {
+    text-decoration: none !important;
 }
 
-#navbarHeaderNavArrows {
-    height: 6rem;
+#NavHeaderArrows-Title {
+    box-shadow: 0px 0px 5px 2px rgb(217, 3, 104) !important;
+    text-transform: uppercase !important;
+    color: rgba(248, 249, 250, .75) !important;
 }
 
-#navbarHeaderNavArrows div a img,
-main nav form img {
-    filter: invert(15%) sepia(98%) saturate(7178%) hue-rotate(322deg) brightness(81%) contrast(116%);
+#NavHeaderArrows-Title:hover {
+    background-color: rgb(217, 3, 104) !important;
 }
 
-main nav form img {
+#NavHeaderArrows .arrows-arrow {
+    height: 3rem !important;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%) !important;
+    opacity: .75 !important;
+}
+
+#NavHeaderArrows .arrows-arrowcontainer:hover {
+    background-color: rgb(217, 3, 104) !important;
+}
+
+#NavMainCategories .categories-category {
+    color: rgba(248, 249, 250, .75) !important;
+}
+
+#NavMainCategories .categories-category:hover {
+    background-color: rgb(217, 3, 104) !important;
+}
+
+#NavMainSearch .search-input:focus {
+    border: 1px solid rgb(217, 3, 104) !important;
+    box-shadow: 0px 0px 5px 2px rgb(217, 3, 104) !important;
+}
+
+#NavMainSearch .search-iconcontainer:hover {
+    background-color: rgb(217, 3, 104) !important;
+}
+
+#NavMainSearch-Icon {
+    height: 2.5rem !important;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%) !important;
+    opacity: .75 !important;
+}
+
+#CardMainGroup .col>.card .card-img {
+    height: 25vh !important;
+    object-fit: cover !important;
+}
+
+#CardMainGroup .col>.card>.card-body>.card-footer>.see-more {
+    color: rgba(248, 249, 250, .75) !important;
+    text-decoration: none !important;
+}
+
+#CardMainGroup .col>.card>.card-body>.card-footer>.see-more:hover {
+    box-shadow: 0px 0px 5px 2px rgb(217, 3, 104) !important;
+}
+
+#FormMainContact .contact-input:focus,
+#FormMainContact .contact-textarea:focus {
+    border: 1px solid rgb(217, 3, 104) !important;
+    box-shadow: 0px 0px 5px 2px rgb(217, 3, 104) !important;
+}
+
+#FormMainContact-Submit {
+    box-shadow: 0px 0px 5px 2px rgb(217, 3, 104) !important;
+    color: rgba(248, 249, 250, .75) !important;
+}
+
+#FormMainContact-Submit:hover {
+    background-color: rgb(217, 3, 104) !important;
+}
+
+.table-stats tbody tr td {
+    height: 3rem !important;
+}
+
+#MediaFooterLinks .links-link:hover {
+    box-shadow: 0px 0px 5px 2px rgb(217, 3, 104) !important;
+}
+
+#MediaFooterLinks .links-linkicon {
     height: 2.5rem !important;
 }
 
-h1 {
-    text-transform: uppercase;
-}
-
-form img {
-    border: 1px solid rgb(217, 3, 104)!important;
-    border-radius: 0.5rem;
-}
-
-main form input:focus,
-main form textarea:focus {
-    border: 1px solid rgb(217, 3, 104) !important;
-    box-shadow: 0px 0px 5px 1px rgb(217, 3, 104) !important;
-}
-
-#card-groupMain img {
-    height: 20vh;
-    object-fit: cover;
-}
-
-div.card-footer a:hover,
-form img:hover {
-    box-shadow: 0px 0px 5px 1px rgb(217, 3, 104) !important;
-}
-
-table tbody tr td {
-    height: 3rem;
-}
-
 @media (max-width: 576px) {
-    h1 {
-        font-size: 0.75rem;
+    #NavHeaderArrows-Title {
+        font-size: 0.75rem !important;
     }
 
-    a.navbar-brand img,
-    #navbarHeaderNavArrows div a img {
-        height: 2rem;
+    #NavHeaderPages-SiteLogo,
+    #NavHeaderArrows .arrows-arrow {
+        height: 2rem !important;
     }
 }
 
-@media (max-width: 718px) {
-    main nav {
-        justify-content: center !important;
-    }
-
-    main nav div {
-        text-align: center;
-    }
-
-    main nav form {
-        padding-top: 0.5rem;
+@media (min-width: 758px) and (max-width: 768px) {
+    #NavMainCategories {
+        padding: 0 5px 0 5px !important;
     }
 }
