@@ -2,75 +2,97 @@ const categories = ["Food & Drink", "Kids & Family", "Music", "Nightlife", "Spor
 
 const event_Cinema = {
     name: "Cinema",
-    date: "Date",
-    description: "Gather your family and friends and experience the latest alternative entertainment on the 'Big Screen'",
+    date: new Date("10/14/23").toDateString(),
+    description: "Gather your family and friends, and experience the latest alternative entertainment on the 'Big Screen'",
     category: ["Kids & Family"],
     place: "Location",
-    capacity: "Max Capacity",
-    assistance: "Average Assistance",
+    capacity: "200",
+    assistance: "60",
     price: "400",
+    image_src: "./assets/cinema.jpg",
 }
 
 const event_CostumeParty = {
     name: "Costume Party",
-    date: "Date",
-    description: "Placeholder",
+    date: new Date("1/12/22").toDateString(),
+    description: "Event Description",
     category: ["Nightlife"],
     place: "Location",
-    capacity: "Max Capacity",
-    assistance: "Average Assistance",
+    capacity: "100",
+    assistance: "80",
     price: "500",
+    image_src: "./assets/costume_party.jpg",
 }
 
 const event_FoodFair = {
     name: "Food Fair",
-    date: "Date",
-    description: "Placeholder",
+    date: new Date("1/23/23").toDateString(),
+    description: "Event Description",
     category: ["Food & Drink", "Kids & Family"],
     place: "Location",
-    capacity: "Max Capacity",
-    assistance: "Average Assistance",
-    price: "250",
+    capacity: "400",
+    assistance: "250",
+    price: "$ 250",
+    image_src: "./assets/food_fair.jpg",
 }
 
 const event_Marathon = {
     name: "Marathon",
-    date: "Date",
-    description: "Placeholder",
+    date: new Date("12/18/22").toDateString(),
+    description: "Event Description",
     category: ["Sports"],
     place: "Location",
-    capacity: "Max Capacity",
-    assistance: "Average Assistance",
-    price: "200",
+    capacity: "150",
+    assistance: "50",
+    price: "$ 200",
+    image_src: "./assets/marathon.jpg",
 }
 
 const event_MuseumTour = {
     name: "Museum Tour",
-    date: "Date",
-    description: "Placeholder",
+    date: new Date("3/29/22").toDateString(),
+    description: "Event Description",
     category: ["Kids & Family", "Nightlife"],
     place: "Location",
-    capacity: "Max Capacity",
-    assistance: "Average Assistance",
-    price: "350",
+    capacity: "200",
+    assistance: "75",
+    price: "$ 350",
+    image_src: "./assets/museum_tour.jpg",
 }
 
 const event_MusicConcert = {
     name: "Music Concert",
-    date: "Date",
-    description: "Placeholder",
+    date: new Date("27/2/23").toDateString(),
+    description: "Event Description",
     category: ["Music", "Nightlife"],
     place: "Location",
-    capacity: "Max Capacity",
-    assistance: "Average Assistance",
-    price: "650",
+    capacity: "30000",
+    assistance: "20000",
+    price: "$ 650",
+    image_src: "./assets/music_concert.jpg",
 }
 
 const events = [event_Cinema, event_CostumeParty, event_FoodFair, event_Marathon, event_MuseumTour, event_MusicConcert]
-const shortinfo = ["name", "descripcion", "price"]
+let shortinfo_parameters = ["name","description","price"]
+var details_event = event_Cinema
 
-for (let i = 0; i < events.length; i++) {
-    document.getElementById("CardMain-" + events[i].name.replace(' ','') + "-name").innerHTML = events[i].name
-    document.getElementById("CardMain-" + events[i].name.replace(' ','') + "-description").innerHTML = events[i].description
-    document.getElementById("CardMain-" + events[i].name.replace(' ','') + "-price").innerHTML = "$ " + events[i].price
+if (document.getElementById("CardMainGroup")) {
+    for (let i = 0; i < events.length; i++) {
+        for (let j = 0; j < shortinfo_parameters.length; j++) {
+            document.getElementById(`CardMain-${events[i].name.replace(" ","")}-${shortinfo_parameters[j]}`).innerHTML = events[i][shortinfo_parameters[j]];            
+        }
+    }
+}
+
+if (document.getElementById("CardMainDetails")) {
+    document.getElementById("CardMainDetailsCard").innerHTML = `
+    <h5 class="card-title my-4 mx-4" id="CardMainDetails-name">${details_event.name}</h5>
+    <p class="card-text mx-4" id="CardMainDetails-date">Date: ${details_event.date}</p>
+    <p class="card-text mx-4" id="CardMainDetails-description">Description: ${details_event.description}</p>
+    <p class="card-text mx-4" id="CardMainDetails-category">Category: ${details_event.category}</p>
+    <p class="card-text mx-4" id="CardMainDetails-place">Place: ${details_event.place}</p>
+    <p class="card-text mx-4" id="CardMainDetails-capacity">Capacity: ${details_event.capacity}</p>
+    <p class="card-text mx-4" id="CardMainDetails-assistance">Assistance or estimate: ${details_event.assistance}</p>
+    <p class="card-text mb-4 mx-4" id="CardMainDetails-price">Price: $ ${details_event.price}</p>
+    `
 }
