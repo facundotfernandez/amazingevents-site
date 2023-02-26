@@ -140,3 +140,9 @@
         padding: 0 5px 0 5px !important;
     }
 }
+
+@media (width: 768px) {
+    #NavMainSearch {
+        padding-top: 0.5rem !important;
+    }
+}
