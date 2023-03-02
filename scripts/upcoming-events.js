@@ -1,10 +1,10 @@
 import { data } from "./data.js";
 
-function updateActiveCategories() {
-    var categories_active = [document.getElementById("NavMainCategories").querySelectorAll("input[class=btn-check]:checked")].map(category => category);
-};
-
 for (let event_i = 0; event_i < data.events.length; event_i++) {
+
+    if (data.events[event_i].date < data.currentDate) {
+        continue
+    }
 
     let CardGroup_Column = document.getElementById("CardMainGroup").appendChild(document.createElement("div"));
     CardGroup_Column.classList.add("col");
@@ -16,10 +16,10 @@ for (let event_i = 0; event_i < data.events.length; event_i++) {
             <p class="card-title fs-4">${data.events[event_i].name}</p>
             <p class="card-text">${data.events[event_i].description}</p>
             <div class="card-footer d-flex justify-content-between">
-                <p class="card-text my-0 py-1 px-2"">$ ${data.events[event_i].price}</p>
-                <a class="card-text see-more py-1 px-2 rounded-3" href="./details.html" id="${data.events[event_i]._id}_DetailsId"">See more</a>
+              <p class="card-text my-0 py-1 px-2"">$ ${data.events[event_i].price}</p>
+              <a class="card-text see-more py-1 px-2 rounded-3" href="./details.html" id="${data.events[event_i]._id}_DetailsId"">See more</a>
             </div>
         </div>
     </div>
-`;
+    `;
 };
