@@ -2,7 +2,7 @@ import { data } from "./data.js";
 
 for (let event_i = 0; event_i < data.events.length; event_i++) {
 
-    if (data.events[event_i].date < data.currentDate) {
+    if (data.events[event_i].date <= data.currentDate) {
         continue
     }
 

@@ -1,9 +1,5 @@
 import { data } from "./data.js";
 
-function updateActiveCategories() {
-    var categories_active = [document.getElementById("NavMainCategories").querySelectorAll("input[class=btn-check]:checked")].map(category => category);
-};
-
 for (let event_i = 0; event_i < data.events.length; event_i++) {
 
     let CardGroup_Column = document.getElementById("CardMainGroup").appendChild(document.createElement("div"));
