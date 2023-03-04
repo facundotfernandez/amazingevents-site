@@ -54,7 +54,7 @@
     background-color: rgb(217, 3, 104) !important;
 }
 
-.btn-check:checked+.categories-category {
+#NavMainCategories .btn-check:checked+.categories-category {
     background-color: rgba(217, 3, 104, 0.75) !important;
     border-color: rgba(217, 3, 104, 0.75) !important;
 }
@@ -69,7 +69,7 @@
 }
 
 #NavMainSearch-Icon {
-    height: 2.5rem !important;
+    height: 2.2rem !important;
     filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%) !important;
     opacity: .75 !important;
 }
@@ -142,17 +142,5 @@
     #NavHeaderPages-SiteLogo,
     #NavHeaderArrows .arrows-arrow {
         height: 2rem !important;
-    }
-}
-
-@media (min-width: 758px) and (max-width: 768px) {
-    #NavMainCategories {
-        padding: 0 5px 0 5px !important;
-    }
-}
-
-@media (width: 768px) {
-    #NavMainSearch {
-        padding-top: 0.5rem !important;
     }
 }

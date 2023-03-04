@@ -42,8 +42,8 @@
     </nav>
   </header>
   <main class="mx-4 mb-4">
-    <nav class="navbar bg-body-tertiary px-3 rounded-3 justify-content-center justify-content-md-evenly justify-content-lg-between text-center">
-      <div class="btn-group-sm" role="group" aria-label="Categories Checkbox toggle button group" id="NavMainCategories">
+    <nav class="navbar bg-body-tertiary px-3 rounded-3 row row-cols-2">
+      <div class="btn-group-sm col-12 col-md-8 col-lg-9" role="group" aria-label="Categories Checkbox toggle button group" id="NavMainCategories">
         <input type="checkbox" class="btn-check" id="btncheck1">
         <label class="btn categories-category" for="btncheck1">Food Fair</label>
         <input type="checkbox" class="btn-check" id="btncheck2">
@@ -61,7 +61,7 @@
         <input type="checkbox" class="btn-check" id="btncheck8">
         <label class="btn categories-category" for="btncheck8">Cinema</label>
       </div>
-      <form class="d-flex align-items-center pt-2 pt-md-0" role="search" id="NavMainSearch">
+      <form class="d-flex col-12 col-md-4 col-lg-3 justify-content-center align-items-center pt-2 pt-md-0" role="search" id="NavMainSearch">
         <input class="form-control search-input me-2 px-2" type="search" placeholder="Search" aria-label="Categories Search">
         <span class="search-iconcontainer rounded-3"><img class="btn py-1 px-2" src="./assets/search-icon.svg" alt="Search Button" id="NavMainSearch-Icon"></span>
       </form>
