@@ -85,7 +85,7 @@
 
 #CardMainGroup .col>.card>.card-body>.card-footer>.see-more {
     color: rgba(248, 249, 250, .75) !important;
-    background-color: rgb(217, 3, 104) !important;
+    background-color: rgba(217, 3, 104, .75) !important;
     text-decoration: none !important;
 }
 
