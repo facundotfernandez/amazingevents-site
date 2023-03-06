@@ -98,7 +98,7 @@
 }
 
 #FormMainContact .contact-textarea {
-    height: 30vh !important;
+    max-height: 30vh !important;
 }
 
 #FormMainContact .contact-input:focus,
