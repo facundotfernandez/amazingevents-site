@@ -2,11 +2,11 @@ import { data } from "./data.js";
 
 function createEventsCards() {
 
-    document.getElementById("CardMainGroup").innerHTML = ``
+    let CardGroup = []
 
     for (const event of data.events) {
 
-        document.getElementById("CardMainGroup").innerHTML += `
+        CardGroup += `
         <div class="col">
             <div class="card h-100 w-100">
                 <img src="${event.image}" class="card-img p-2 rounded-5" alt="${event.name} Event Image">
@@ -23,6 +23,8 @@ function createEventsCards() {
         `;
 
     };
+
+    document.getElementById("CardMainGroup").innerHTML = CardGroup
 
 };
 
