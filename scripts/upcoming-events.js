@@ -2,6 +2,8 @@ import { data } from "./data.js";
 
 function createUpcomingEventsCards() {
 
+    document.getElementById("CardMainGroup").innerHTML = ``
+
     for (const event of data.events) {
 
         if (event.date >= data.currentDate) {

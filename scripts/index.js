@@ -2,6 +2,8 @@ import { data } from "./data.js";
 
 function createEventsCards() {
 
+    document.getElementById("CardMainGroup").innerHTML = ``
+
     for (const event of data.events) {
 
         document.getElementById("CardMainGroup").innerHTML += `
