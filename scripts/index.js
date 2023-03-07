@@ -4,7 +4,7 @@ function createEventsCards() {
 
     let CardGroup = []
 
-    for (const event of data.events) {
+    data.events.forEach(event => {
 
         CardGroup += `
         <div class="col">
@@ -22,7 +22,7 @@ function createEventsCards() {
         </div>
         `;
 
-    };
+    });
 
     document.getElementById("CardMainGroup").innerHTML = CardGroup
 

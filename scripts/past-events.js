@@ -4,7 +4,7 @@ function createPastEventsCards() {
 
     let CardGroup = []
 
-    for (const event of data.events) {
+    data.events.forEach(event => {
 
         if (event.date < data.currentDate) {
 
@@ -26,7 +26,7 @@ function createPastEventsCards() {
 
         };
 
-    };
+    });
 
     document.getElementById("CardMainGroup").innerHTML = CardGroup
 
