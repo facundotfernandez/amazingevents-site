@@ -1,27 +1,34 @@
 import { data } from "./data.js";
 
-function createUpcomingEventsCards() {
+function init_CategoriesAndEvents() {
 
-    let CategoriesGroup = []
-    let CheckedCategories = getCheckedCategories()
-    let CardGroup = []
+    let EventsGroup = {}
+    let CategoriesGroup = {}
+    let EventsHTMLSection = ""
+    let CategoriesHTMLSection = ""
 
     data.events.forEach(event => {
 
         if (event.date >= data.currentDate) {
 
-            if (!CategoriesGroup.includes(event.category)) {
+            if (CategoriesGroup.hasOwnProperty(event.category)) {
 
-                CategoriesGroup += `
+                CategoriesGroup[event.category].push(event._id)
+
+            } else {
+
+                CategoriesGroup[event.category] = [event._id];
+
+                CategoriesHTMLSection += `
                     <input type="checkbox" class="btn-check" value="${event.category}" id="btncheck-event${event._id}">
                     <label class="btn categories-category" for="btncheck-event${event._id}">${event.category}</label>
                 `;
-    
+
             };
 
-            if (CheckedCategories.length == 0 || CheckedCategories.includes(event.category)) {
+            EventsGroup[event._id] = {"image": event.image, "name": event.name, "description": event.description, "price": event.price };
 
-                CardGroup += `
+            EventsHTMLSection += `
                 <div class="col">
                     <div class="card h-100 w-100">
                         <img src="${event.image}" class="card-img p-2 rounded-5" alt="${event.name} Event Image">
@@ -37,19 +44,15 @@ function createUpcomingEventsCards() {
                 </div>
                 `;
 
-            };
-
         };
 
     });
 
-    document.getElementById("CardMainGroup").innerHTML = CardGroup
-    document.getElementById("NavMainCategories").innerHTML = CategoriesGroup
+    document.getElementById("CardMainGroup").innerHTML = EventsHTMLSection
+    document.getElementById("NavMainCategories").innerHTML = CategoriesHTMLSection
+
+    return [EventsGroup,CategoriesGroup]
 
 };
 
-function getCheckedCategories() {
-    return [...document.querySelectorAll("input[class = btn-check]:checked")].map(category => category.value)
-}
-
-createUpcomingEventsCards()
+let [EventsGroup, CategoriesGroup] = init_CategoriesAndEvents()

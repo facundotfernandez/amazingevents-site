@@ -1,37 +1,32 @@
 import { data } from "./data.js";
 
-function createCategories() {
+function init_CategoriesAndEvents() {
 
-    let CategoriesGroup = ""
+    let EventsGroup = {}
+    let CategoriesGroup = {}
+    let EventsHTMLSection = ""
+    let CategoriesHTMLSection = ""
 
     data.events.forEach(event => {
 
-        if (!CategoriesGroup.includes(event.category)) {
+        if (CategoriesGroup.hasOwnProperty(event.category)) {
 
-            CategoriesGroup += `
+            CategoriesGroup[event.category].push(event._id)
+
+        } else {
+
+            CategoriesGroup[event.category] = [event._id];
+
+            CategoriesHTMLSection += `
                 <input type="checkbox" class="btn-check" value="${event.category}" id="btncheck-event${event._id}">
                 <label class="btn categories-category" for="btncheck-event${event._id}">${event.category}</label>
             `;
 
         };
 
-        document.getElementById("NavMainCategories").innerHTML = CategoriesGroup
+        EventsGroup[event._id] = {"image": event.image, "name": event.name, "description": event.description, "price": event.price };
 
-    });
-
-};
-
-function createEventCards() {
-
-    let CheckedCategories = Object.values([...document.querySelectorAll("input[class = btn-check]:checked")].map(category => category.value))
-    let SearchInput = Object.values([...document.getElementsByClassName('search-input')].map(input => input.value))
-    let CardGroup = []
-
-    data.events.forEach(event => {
-
-        if ((CheckedCategories.length == 0 || CheckedCategories.includes(event.category)) && (SearchInput == "" || SearchInput.includes(event.name))) {
-
-            CardGroup += `
+        EventsHTMLSection += `
             <div class="col">
                 <div class="card h-100 w-100">
                     <img src="${event.image}" class="card-img p-2 rounded-5" alt="${event.name} Event Image">
@@ -47,15 +42,13 @@ function createEventCards() {
             </div>
             `;
 
-        };
-    
     });
 
-    document.getElementById("CardMainGroup").innerHTML = CardGroup
+    document.getElementById("CardMainGroup").innerHTML = EventsHTMLSection
+    document.getElementById("NavMainCategories").innerHTML = CategoriesHTMLSection
+
+    return [EventsGroup,CategoriesGroup]
 
 };
 
-
-
-createCategories()
-createEventCards()
+let [EventsGroup, CategoriesGroup] = init_CategoriesAndEvents()
