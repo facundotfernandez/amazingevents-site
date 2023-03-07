@@ -2,7 +2,7 @@ import { data } from "./data.js";
 
 function createUpcomingEventsCards() {
 
-    let CardGroup = []
+    let CardGroup = ""
 
     data.events.forEach(event => {
 
