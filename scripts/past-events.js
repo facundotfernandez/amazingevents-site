@@ -20,8 +20,9 @@ function init_CategoriesAndEvents() {
                 CategoriesGroup[event.category] = [event._id];
 
                 CategoriesHTMLSection += `
-                    <input type="checkbox" class="btn-check" value="${event.category}" id="btncheck-event${event._id}">
-                    <label class="btn categories-category" for="btncheck-event${event._id}">${event.category}</label>
+                    <label class="btn categories-category">${event.category}
+                        <input type="checkbox" class="btn-check" value="${event.category}">
+                    </label>
                 `;
 
             };
