@@ -90,7 +90,7 @@
 }
 
 #CardMainGroup .col>.card>.card-body>.card-footer>.see-more:hover {
-    box-shadow: 0px 0px 5px 2px rgb(217, 3, 104) !important;
+    box-shadow: 0px 0px 5px 1px whitesmoke !important;
 }
 
 #CardMainDetails-image {
