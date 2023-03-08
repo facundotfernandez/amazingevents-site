@@ -6,6 +6,7 @@ function init_CategoriesAndEvents() {
     let CategoriesGroup = {}
     let EventsHTMLSection = ""
     let CategoriesHTMLSection = ""
+    let EventsShortInfo = ["image", "name", "description", "price"]
 
     data.events.forEach(event => {
 
@@ -27,7 +28,11 @@ function init_CategoriesAndEvents() {
 
             };
 
-            EventsGroup[event._id] = { "image": event.image, "name": event.name, "description": event.description, "price": event.price };
+            EventsGroup[event._id] = {};
+
+            EventsShortInfo.forEach(property => {
+                EventsGroup[event._id][property] = event[property]
+            });
 
             EventsHTMLSection += `
                 <div class="col">

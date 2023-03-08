@@ -6,6 +6,7 @@ function init_CategoriesAndEvents() {
     let CategoriesGroup = {}
     let EventsHTMLSection = ""
     let CategoriesHTMLSection = ""
+    let EventsShortInfo = ["image", "name", "description", "price"]
 
     data.events.forEach(event => {
 
@@ -20,14 +21,17 @@ function init_CategoriesAndEvents() {
                 CategoriesGroup[event.category] = [event._id];
 
                 CategoriesHTMLSection += `
-                    <label class="btn categories-category">${event.category}
-                        <input type="checkbox" class="btn-check" value="${event.category}">
-                    </label>
+                    <input type="checkbox" class="btn-check" id="btncheck_${event._id}" value="${event.category}">
+                    <label class="btn categories-category" for="btncheck_${event._id}">${event.category}</label>
                 `;
 
             };
 
-            EventsGroup[event._id] = { "image": event.image, "name": event.name, "description": event.description, "price": event.price };
+            EventsGroup[event._id] = {};
+
+            EventsShortInfo.forEach(property => {
+                EventsGroup[event._id][property] = event[property]
+            });
 
             EventsHTMLSection += `
                 <div class="col">
@@ -51,6 +55,8 @@ function init_CategoriesAndEvents() {
 
     document.getElementById("CardMainGroup").innerHTML = EventsHTMLSection
     document.getElementById("NavMainCategories").innerHTML = CategoriesHTMLSection
+
+    console.log(EventsGroup);
 
 };
 
