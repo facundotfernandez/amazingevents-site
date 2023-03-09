@@ -46,6 +46,10 @@
     background-color: rgb(217, 3, 104) !important;
 }
 
+main {
+    min-height: 73vh;
+}
+
 #NavMainCategories .categories-category {
     color: rgba(248, 249, 250, .75) !important;
 }

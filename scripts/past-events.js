@@ -2,31 +2,46 @@ import { data } from "./data.js";
 
 function init_CategoriesAndEvents() {
 
-    let EventsGroup = {}
-    let CategoriesGroup = {}
-    let EventsHTMLSection = ""
+    let EventsGroup = []
+    let CategoriesGroup = []
     let CategoriesHTMLSection = ""
 
     data.events.forEach(event => {
 
         if (event.date < data.currentDate) {
 
-            if (CategoriesGroup.hasOwnProperty(event.category)) {
+            if (!CategoriesGroup.includes(event.category)) {
 
-                CategoriesGroup[event.category].push(event._id)
-
-            } else {
-
-                CategoriesGroup[event.category] = [event._id];
+                CategoriesGroup.push(event.category)
 
                 CategoriesHTMLSection += `
-                    <input type="checkbox" class="btn-check" value="${event.category}" id="btncheck-event${event._id}">
-                    <label class="btn categories-category" for="btncheck-event${event._id}">${event.category}</label>
+                    <input type="checkbox" class="btn-check" id="btncheck_${event._id}" value="${event.category}">
+                    <label class="btn categories-category" for="btncheck_${event._id}">${event.category}</label>
                 `;
 
             };
 
-            EventsGroup[event._id] = {"image": event.image, "name": event.name, "description": event.description, "price": event.price };
+            EventsGroup.push(event)
+
+        };
+
+    });
+
+    
+    document.getElementById("NavMainCategories").innerHTML = CategoriesHTMLSection
+    updateEventsShown(EventsGroup)
+
+};
+
+function updateEventsShown(EventsAvailable) {
+
+    let EventsHTMLSection = "";
+    let CategoriesChecked = [];
+    let SearchInput = document.getElementById("SearchInput").value.toLowerCase();
+
+    EventsAvailable.forEach(event => {
+
+        if ((CategoriesChecked.length == 0 || CategoriesChecked.includes(event.category)) && (SearchInput.length == 0 || (event.name.toLowerCase()).includes(SearchInput))) {
 
             EventsHTMLSection += `
                 <div class="col">
@@ -42,17 +57,14 @@ function init_CategoriesAndEvents() {
                         </div>
                     </div>
                 </div>
-                `;
+            `;
 
         };
-
+      
     });
 
     document.getElementById("CardMainGroup").innerHTML = EventsHTMLSection
-    document.getElementById("NavMainCategories").innerHTML = CategoriesHTMLSection
-
-    return [EventsGroup,CategoriesGroup]
 
 };
 
-let [EventsGroup, CategoriesGroup] = init_CategoriesAndEvents()
+init_CategoriesAndEvents()
