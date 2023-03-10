@@ -6,17 +6,17 @@
 }
 
 body::-webkit-scrollbar {
-    width: 1.2rem;
+    width: 1.2rem !important;
 }
 
 body::-webkit-scrollbar-track {
-    background: rgb(21, 25, 29);
+    background: rgb(21, 25, 29) !important;
 }
 
 body::-webkit-scrollbar-thumb {
     background-color: rgb(217, 3, 104) !important;
-    border-radius: 20px;
-    border: 0.35rem solid rgb(21, 25, 29);
+    border-radius: 20px !important;
+    border: 0.35rem solid rgb(21, 25, 29) !important;
 }
 
 #NavHeaderPages-SiteLogo {
@@ -83,9 +83,8 @@ main {
 }
 
 #NavMainSearch .search-input::-webkit-search-cancel-button {
-    display: none;
+    display: none !important;
 }
-
 
 #NavMainSearch-Icon {
     height: 2.2rem !important;
