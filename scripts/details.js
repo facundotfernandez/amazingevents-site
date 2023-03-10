@@ -8,7 +8,7 @@ function createDetailsCard() {
 
     CardMainDetails.innerHTML = `
     <div class="d-flex align-items-center h-100 w-100">
-        <div class="col d-none d-sm-block border h-100 rounded-3 mx-2">
+        <div class="col d-none d-md-block border h-100 rounded-3 mx-2">
             <img src="${event.image}" class="card-img h-100" alt="${event.name} Event Image" id="CardMainDetails-image">
         </div>
         <div class="col border rounded-3 h-100 d-flex flex-column justify-content-between">
