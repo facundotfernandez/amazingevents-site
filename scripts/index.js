@@ -58,7 +58,13 @@ function updateEventsShown() {
 
     });
 
+    if (EventsHTMLSection == "") {
+        alert("Adjust the filters to find an event")
+    }
+
     document.getElementById("CardMainGroup").innerHTML = EventsHTMLSection
+
+    
 
 };
 
