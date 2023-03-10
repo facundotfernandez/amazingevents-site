@@ -5,6 +5,20 @@
     font-family: 'Barlow';
 }
 
+body::-webkit-scrollbar {
+    width: 1.2rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: rgb(21, 25, 29);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(217, 3, 104) !important;
+    border-radius: 20px;
+    border: 0.35rem solid rgb(21, 25, 29);
+}
+
 #NavHeaderPages-SiteLogo {
     height: 3rem !important;
 }
@@ -68,9 +82,10 @@ main {
     box-shadow: 0px 0px 5px 2px rgb(217, 3, 104) !important;
 }
 
-#NavMainSearch .search-iconcontainer:hover {
-    background-color: rgb(217, 3, 104) !important;
+#NavMainSearch .search-input::-webkit-search-cancel-button {
+    display: none;
 }
+
 
 #NavMainSearch-Icon {
     height: 2.2rem !important;
