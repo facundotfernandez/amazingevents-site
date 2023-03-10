@@ -94,7 +94,7 @@ main {
 }
 
 #CardMainGroup .col>.card>.card-body>.card-footer>.see-more:hover {
-    box-shadow: 0px 0px 5px 2px rgb(217, 3, 104) !important;
+    box-shadow: 0px 0px 5px 2px whitesmoke !important;
 }
 
 #CardMainDetails-image {
@@ -129,7 +129,7 @@ main {
 }
 
 #MediaFooterLinks .links-link:hover {
-    box-shadow: 0px 0px 5px 2px rgb(217, 3, 104) !important;
+    box-shadow: 0px 0px 5px 2px whitesmoke !important;
 }
 
 #MediaFooterLinks .links-linkicon {

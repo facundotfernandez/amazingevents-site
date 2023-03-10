@@ -10,7 +10,6 @@ function init_CategoriesAndEvents() {
 
         if (!CategoriesGroup.includes(event.category)) {
 
-
             CategoriesGroup.push(event.category)
 
             CategoriesHTMLSection += `
@@ -24,21 +23,20 @@ function init_CategoriesAndEvents() {
 
     });
 
-    
     document.getElementById("NavMainCategories").innerHTML = CategoriesHTMLSection
-    updateEventsShown(EventsGroup)
+    return EventsGroup
 
 };
 
-function updateEventsShown(EventsAvailable) {
+function updateEventsShown() {
 
     let EventsHTMLSection = "";
-    let CategoriesChecked = [];
-    let SearchInput = document.getElementById("SearchInput").value.toLowerCase();
+    let CategoriesChecked = [...document.querySelectorAll("input[class = btn-check]:checked")].map(category => category.value);
+    let SearchInputValue = document.getElementById("SearchInput").value.toLowerCase();
 
     EventsAvailable.forEach(event => {
 
-        if ((CategoriesChecked.length == 0 || CategoriesChecked.includes(event.category)) && (SearchInput.length == 0 || (event.name.toLowerCase()).includes(SearchInput))) {
+        if ((CategoriesChecked.length == 0 || CategoriesChecked.includes(event.category)) && (SearchInputValue.length == 0 || (event.name.toLowerCase()).includes(SearchInputValue))) {
 
             EventsHTMLSection += `
                 <div class="col">
@@ -49,7 +47,7 @@ function updateEventsShown(EventsAvailable) {
                             <p class="card-text">${event.description}</p>
                             <div class="card-footer d-flex justify-content-between">
                                 <p class="card-text my-0 py-1 px-2"">$ ${event.price}</p>
-                                <a class="card-text see-more py-1 px-2 rounded-3" href="./details.html" id="${event._id}_DetailsId"">See more</a>
+                                <a class="card-text see-more py-1 px-2 rounded-3" href="./details.html?id=${event._id}">See more</a>
                             </div>
                         </div>
                     </div>
@@ -57,11 +55,21 @@ function updateEventsShown(EventsAvailable) {
             `;
 
         };
-      
+
     });
 
     document.getElementById("CardMainGroup").innerHTML = EventsHTMLSection
 
 };
 
-init_CategoriesAndEvents()
+const EventsAvailable = init_CategoriesAndEvents()
+const CheckboxGroup = [...document.querySelectorAll("input[class = btn-check")]
+const SearchInput = document.getElementById("SearchInput")
+
+updateEventsShown()
+
+CheckboxGroup.forEach(checkbox => {
+    checkbox.addEventListener("click", updateEventsShown)
+})
+
+SearchInput.addEventListener("keyup", updateEventsShown)
