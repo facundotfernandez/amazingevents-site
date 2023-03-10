@@ -40,7 +40,7 @@ function updateEventsShown() {
 
     EventsAvailable.forEach(event => {
 
-        if ((CategoriesChecked.length == 0 || CategoriesChecked.includes(event.category)) && (SearchInputValue.length == 0 || (event.name.toLowerCase()).includes(SearchInputValue))) {
+        if ((CategoriesChecked.length == 0 || CategoriesChecked.includes(event.category)) && (SearchInputValue.length == 0 || (event.name.toLowerCase()).includes(SearchInputValue) || (event.description.toLowerCase()).includes(SearchInputValue))) {
 
             EventsHTMLSection += `
                 <div class="col">
