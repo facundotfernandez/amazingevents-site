@@ -15,8 +15,8 @@ function init_CategoriesAndEvents() {
                 CategoriesGroup.push(event.category)
 
                 CategoriesHTMLSection += `
-                    <input type="checkbox" class="btn-check" id="btncheck_${event._id}" value="${event.category}">
-                    <label class="btn categories-category" for="btncheck_${event._id}">${event.category}</label>
+                    <input type="checkbox" class="btn-check" id="btncheck-${event.category}" value="${event.category}">
+                    <label class="btn categories-category" for="btncheck-${event.category}">${event.category}</label>
                 `;
 
             };
