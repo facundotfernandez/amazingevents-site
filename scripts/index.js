@@ -31,12 +31,12 @@ function init_CategoriesAndEvents() {
 function updateEventsShown() {
 
     let EventsHTMLSection = "";
-    let CategoriesChecked = [...document.querySelectorAll("input[class = btn-check]:checked")].map(category => category.value);
+    let CheckboxGroupChecked = [...document.querySelectorAll("input[class = btn-check]:checked")].map(category => category.value);
     let SearchInputValue = document.getElementById("SearchInput").value.toLowerCase();
 
     EventsAvailable.forEach(event => {
 
-        if ((CategoriesChecked.length == 0 || CategoriesChecked.includes(event.category)) && (SearchInputValue.length == 0 || (event.name.toLowerCase()).includes(SearchInputValue) || (event.description.toLowerCase()).includes(SearchInputValue))) {
+        if ((CheckboxGroupChecked.length == 0 || CheckboxGroupChecked.includes(event.category)) && (SearchInputValue.length == 0 || (event.name.toLowerCase()).includes(SearchInputValue) || (event.description.toLowerCase()).includes(SearchInputValue))) {
 
             EventsHTMLSection += `
                 <div class="col">
@@ -62,9 +62,7 @@ function updateEventsShown() {
         alert("Adjust the filters to find an event")
     }
 
-    document.getElementById("CardMainGroup").innerHTML = EventsHTMLSection
-
-    
+    document.getElementById("CardMainGroup").innerHTML = EventsHTMLSection  
 
 };
 
