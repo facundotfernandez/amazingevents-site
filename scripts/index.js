@@ -24,6 +24,16 @@ function init_CategoriesAndEvents() {
     });
 
     document.getElementById("NavMainCategories").innerHTML = CategoriesHTMLSection
+
+    const CheckboxGroup = [...document.querySelectorAll("input[class = btn-check")]
+    const SearchInput = document.getElementById("SearchInput")
+
+    CheckboxGroup.forEach(checkbox => {
+        checkbox.addEventListener("click", updateEventsShown)
+    })
+
+    SearchInput.addEventListener("keyup", updateEventsShown)
+
     return EventsGroup
 
 };
@@ -62,18 +72,10 @@ function updateEventsShown() {
         alert("Adjust the filters to find an event")
     }
 
-    document.getElementById("CardMainGroup").innerHTML = EventsHTMLSection  
+    document.getElementById("CardMainGroup").innerHTML = EventsHTMLSection
 
 };
 
 const EventsAvailable = init_CategoriesAndEvents()
-const CheckboxGroup = [...document.querySelectorAll("input[class = btn-check")]
-const SearchInput = document.getElementById("SearchInput")
 
 updateEventsShown()
-
-CheckboxGroup.forEach(checkbox => {
-    checkbox.addEventListener("click", updateEventsShown)
-})
-
-SearchInput.addEventListener("keyup", updateEventsShown)
