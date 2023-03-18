@@ -140,7 +140,12 @@ main {
     vertical-align: center !important;
 }
 
-.table-stats tbody tr td {
+.table-stats thead {
+    background-color: rgba(217, 3, 104, 0.75) !important;
+    border-color: rgba(217, 3, 104, 0.75) !important;
+}
+
+.table-stats tbody tr {
     height: 3rem !important;
 }
 
