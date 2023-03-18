@@ -23,7 +23,6 @@ async function init_EventsPage() {
     try {
 
         const data = await obtain_EventsData()
-        console.log(data);
 
         let EventsGroup = []
         let CategoriesGroup = []

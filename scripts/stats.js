@@ -68,7 +68,7 @@ async function init_StatsPage() {
 
                 };
 
-                
+
 
                 if (PastEventsStatsByCat.hasOwnProperty(event.category)) {
 
@@ -110,14 +110,14 @@ async function init_StatsPage() {
             };
 
         });
-        
+
         Object.keys(UpcomingEventsStatsByCat).forEach(category => {
 
             UpcomingStatsHTMLSection += `
             <tr>
                 <td>${category}</td>
                 <td>${UpcomingEventsStatsByCat[category][0]}</td>
-                <td>${(UpcomingEventsStatsByCat[category][1]/UpcomingEventsStatsByCat[category][2]).toFixed(2) + " %"}</td>
+                <td>${(UpcomingEventsStatsByCat[category][1] / UpcomingEventsStatsByCat[category][2]).toFixed(2) + " %"}</td>
             </tr>
             `;
 
@@ -129,7 +129,7 @@ async function init_StatsPage() {
             <tr>
                 <td>${category}</td>
                 <td>${PastEventsStatsByCat[category][0]}</td>
-                <td>${(PastEventsStatsByCat[category][1]/PastEventsStatsByCat[category][2]).toFixed(2) + " %"}</td>
+                <td>${(PastEventsStatsByCat[category][1] / PastEventsStatsByCat[category][2]).toFixed(2) + " %"}</td>
             </tr>
             `;
 
