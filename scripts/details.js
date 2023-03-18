@@ -7,6 +7,7 @@ async function obtain_EventsData() {
 
         const response = await fetch(ApiURL)
         const externaldata = await response.json()
+        console.log(externaldata);
         return externaldata
 
     } catch (error) {
@@ -36,7 +37,7 @@ function init_DetailsPage() {
             <p class="card-text fs-5 mx-4">Category: ${event.category}</p>
             <p class="card-text fs-5 mx-4">Place: ${event.place}</p>
             <p class="card-text fs-5 mx-4">Capacity: ${event.capacity}</p>
-            <p class="card-text fs-5 mx-4">Assistance: ${event.assistance}</p>
+            <p class="card-text fs-5 mx-4">Assistance: ${(event.hasOwnProperty("assistance")) ? event.assistance : event.estimate}</p>
             <p class="card-text fs-5 mb-4 mx-4">Price: $ ${event.price}</p>
         </div>
     </div>
