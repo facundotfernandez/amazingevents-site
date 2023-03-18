@@ -138,6 +138,11 @@ main {
     height: 3rem !important;
 }
 
+.table-stats tbody tr {
+    text-align: center !important;
+    vertical-align: center !important;
+}
+
 #MediaFooterLinks .links-link {
     background-color: rgb(217, 3, 104) !important;
 }
