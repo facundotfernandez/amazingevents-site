@@ -7,7 +7,6 @@ async function obtain_EventsData() {
 
         const response = await fetch(ApiURL)
         const externaldata = await response.json()
-        console.log(externaldata);
         return externaldata
 
     } catch (error) {
