@@ -116,6 +116,7 @@ main {
 }
 
 #FormMainContact .contact-textarea {
+    min-height: 15vh !important;
     max-height: 30vh !important;
 }
 
@@ -134,13 +135,13 @@ main {
     background-color: rgb(217, 3, 104) !important;
 }
 
-.table-stats tbody tr td {
-    height: 3rem !important;
-}
-
-.table-stats tbody tr {
+.table-stats {
     text-align: center !important;
     vertical-align: center !important;
+}
+
+.table-stats tbody tr td {
+    height: 3rem !important;
 }
 
 #MediaFooterLinks .links-link {

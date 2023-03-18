@@ -1,4 +1,4 @@
-import { data as localdata } from "./data.js";
+import { data as localdata } from "./localdata.js";
 const ApiURL = "https://mindhub-xj03.onrender.com/api/amazing"
 
 async function obtain_EventsData() {

@@ -1,4 +1,4 @@
-import { data as localdata } from "./data.js";
+import { data as localdata } from "./localdata.js";
 const ApiURL = "https://mindhub-xj03.onrender.com/api/amazing"
 
 async function obtain_EventsData() {
@@ -23,8 +23,14 @@ async function init_StatsPage() {
     try {
 
         const data = await obtain_EventsData()
-        console.log(data);
 
+        let EventStatsHTMLSection = `
+        <tr class="text-bg-secondary">
+            <td>Event with the highest percentage of attendance</td>
+            <td>Event with the lowest percentage of attendance</td>
+            <td>Event with larger capacity</td>
+        </tr>
+        `
         let UpcomingStatsHTMLSection = `
         <tr class="text-bg-secondary">
             <td>Categories</td>
@@ -113,7 +119,7 @@ async function init_StatsPage() {
                 <td>${UpcomingEventsStatsByCat[category][0]}</td>
                 <td>${(UpcomingEventsStatsByCat[category][1]/UpcomingEventsStatsByCat[category][2]).toFixed(2) + " %"}</td>
             </tr>
-            `
+            `;
 
         });
 
@@ -125,22 +131,19 @@ async function init_StatsPage() {
                 <td>${PastEventsStatsByCat[category][0]}</td>
                 <td>${(PastEventsStatsByCat[category][1]/PastEventsStatsByCat[category][2]).toFixed(2) + " %"}</td>
             </tr>
-            `
+            `;
 
         });
 
-        document.getElementById("EventStatsMainTable-Body").innerHTML = `
-        <tr class="text-bg-secondary">
-            <td>Event with the highest percentage of attendance</td>
-            <td>Event with the lowest percentage of attendance</td>
-            <td>Event with larger capacity</td>
-        </tr>
+        EventStatsHTMLSection += `
         <tr>
             <td>${MaxAttendanceInfo.join(" ") + " %"}</td>
             <td>${MinAttendanceInfo.join(" ") + " %"}</td>
             <td>${MaxCapacityInfo.join(" ")}</td>
         </tr>
-        `
+        `;
+
+        document.getElementById("EventStatsMainTable-Body").innerHTML = EventStatsHTMLSection
         document.getElementById("UpcomingStatsMainTable-Body").innerHTML = UpcomingStatsHTMLSection
         document.getElementById("PastStatsMainTable-Body").innerHTML = PastStatsHTMLSection
 
