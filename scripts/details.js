@@ -21,7 +21,7 @@ async function obtain_EventsData() {
 async function init_DetailsPage() {
 
     try {
-        
+
         const data = await obtain_EventsData()
 
         const event_id = new URLSearchParams(location.search).get("id")
@@ -46,7 +46,7 @@ async function init_DetailsPage() {
         `;
 
     } catch (error) {
-            
+
         console.log(error);
 
     };
