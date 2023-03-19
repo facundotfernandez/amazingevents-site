@@ -45,9 +45,9 @@ async function init_StatsPage() {
         </tr>`
         let UpcomingEventsStatsByCat = {}
         let PastEventsStatsByCat = {}
-        let MaxAttendanceInfo = ["", -Infinity]
-        let MinAttendanceInfo = ["", +Infinity]
-        let MaxCapacityInfo = ["", -Infinity]
+        let MaxAttendanceInfo = { "eventname": "", "attendance": -Infinity }
+        let MinAttendanceInfo = { "eventname": "", "attendance": +Infinity }
+        let MaxCapacityInfo = { "eventname": "", "capacity": -Infinity }
 
         data.events.forEach(event => {
 
@@ -56,15 +56,17 @@ async function init_StatsPage() {
                 let attendance = (event.assistance * 100) / event.capacity
                 let revenue = event.assistance * event.price
 
-                if (attendance >= MaxAttendanceInfo[1]) {
+                if (attendance >= MaxAttendanceInfo["attendance"]) {
 
-                    MaxAttendanceInfo = [event.name, attendance.toFixed(2)]
+                    MaxAttendanceInfo["eventname"] = event.name
+                    MaxAttendanceInfo["attendance"] = attendance.toFixed(2)
 
                 };
 
-                if (attendance <= MinAttendanceInfo[1]) {
+                if (attendance <= MinAttendanceInfo["attendance"]) {
 
-                    MinAttendanceInfo = [event.name, attendance.toFixed(2)]
+                    MinAttendanceInfo["eventname"] = event.name
+                    MinAttendanceInfo["attendance"] = attendance.toFixed(2)
 
                 };
 
@@ -72,13 +74,13 @@ async function init_StatsPage() {
 
                 if (PastEventsStatsByCat.hasOwnProperty(event.category)) {
 
-                    PastEventsStatsByCat[event.category][0] += revenue
-                    PastEventsStatsByCat[event.category][1] += attendance
-                    PastEventsStatsByCat[event.category][2] += 1
+                    PastEventsStatsByCat[event.category]["revenue"] += revenue
+                    PastEventsStatsByCat[event.category]["attendance"] += attendance
+                    PastEventsStatsByCat[event.category]["quantity"] += 1
 
                 } else {
 
-                    PastEventsStatsByCat[event.category] = [revenue, attendance, 1]
+                    PastEventsStatsByCat[event.category] = { "revenue": revenue, "attendance": attendance, "quantity": 1 }
 
                 };
 
@@ -91,21 +93,22 @@ async function init_StatsPage() {
 
                 if (UpcomingEventsStatsByCat.hasOwnProperty(event.category)) {
 
-                    UpcomingEventsStatsByCat[event.category][0] += revenue
-                    UpcomingEventsStatsByCat[event.category][1] += attendance
-                    UpcomingEventsStatsByCat[event.category][2] += 1
+                    UpcomingEventsStatsByCat[event.category]["revenue"] += revenue
+                    UpcomingEventsStatsByCat[event.category]["attendance"] += attendance
+                    UpcomingEventsStatsByCat[event.category]["quantity"] += 1
 
                 } else {
 
-                    UpcomingEventsStatsByCat[event.category] = [revenue, attendance, 1]
+                    UpcomingEventsStatsByCat[event.category] = { "revenue": revenue, "attendance": attendance, "quantity": 1 }
 
                 };
 
             };
 
-            if (event.capacity > MaxCapacityInfo[1]) {
+            if (event.capacity > MaxCapacityInfo["capacity"]) {
 
-                MaxCapacityInfo = [event.name, event.capacity]
+                MaxCapacityInfo["eventname"] = event.name
+                MaxCapacityInfo["capacity"] = event.capacity
 
             };
 
@@ -116,8 +119,8 @@ async function init_StatsPage() {
             UpcomingStatsHTMLSection += `
             <tr>
                 <td>${category}</td>
-                <td>${UpcomingEventsStatsByCat[category][0]}</td>
-                <td>${(UpcomingEventsStatsByCat[category][1] / UpcomingEventsStatsByCat[category][2]).toFixed(2) + " %"}</td>
+                <td>${UpcomingEventsStatsByCat[category]["revenue"]}</td>
+                <td>${(UpcomingEventsStatsByCat[category]["attendance"] / UpcomingEventsStatsByCat[category]["quantity"]).toFixed(2)} %</td>
             </tr>
             `;
 
@@ -128,8 +131,8 @@ async function init_StatsPage() {
             PastStatsHTMLSection += `
             <tr>
                 <td>${category}</td>
-                <td>${PastEventsStatsByCat[category][0]}</td>
-                <td>${(PastEventsStatsByCat[category][1] / PastEventsStatsByCat[category][2]).toFixed(2) + " %"}</td>
+                <td>${PastEventsStatsByCat[category]["revenue"]}</td>
+                <td>${(PastEventsStatsByCat[category]["attendance"] / PastEventsStatsByCat[category]["quantity"]).toFixed(2)} %</td>
             </tr>
             `;
 
@@ -137,9 +140,9 @@ async function init_StatsPage() {
 
         EventStatsHTMLSection += `
         <tr>
-            <td>${MaxAttendanceInfo.join(" ") + " %"}</td>
-            <td>${MinAttendanceInfo.join(" ") + " %"}</td>
-            <td>${MaxCapacityInfo.join(" ")}</td>
+            <td>${MaxAttendanceInfo["eventname"]} ${MaxAttendanceInfo["attendance"]} %</td>
+            <td>${MinAttendanceInfo["eventname"]} ${MinAttendanceInfo["attendance"]} %</td>
+            <td>${MaxCapacityInfo["eventname"]} ${MaxCapacityInfo["capacity"]}</td>
         </tr>
         `;
 
