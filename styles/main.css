@@ -97,9 +97,9 @@ main {
     object-fit: cover !important;
 }
 
-/* #CardMainGroup .card-body {
+#CardMainGroup .card-body {
     min-height: 20vh;
-} */
+}
 
 #CardMainGroup .col>.card>.card-body>.card-footer>.see-more {
     color: rgba(248, 249, 250, .75) !important;
