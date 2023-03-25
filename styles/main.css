@@ -86,12 +86,6 @@ main {
     display: none !important;
 }
 
-#NavMainSearch-Icon {
-    height: 2.2rem !important;
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%) !important;
-    opacity: .75 !important;
-}
-
 #CardMainGroup .col>.card .card-img {
     height: 25vh !important;
     object-fit: cover !important;
