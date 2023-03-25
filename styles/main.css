@@ -173,3 +173,18 @@ main {
         height: 2rem !important;
     }
 }
+
+@media (max-width: 768px) {
+
+    #CardMainDetails-image {
+        height: 35vh !important;
+    }
+}
+
+@media (min-width: 768px) {
+
+    #DetailsFooter {
+        position: fixed !important;
+        bottom: 0 !important;
+    }
+}

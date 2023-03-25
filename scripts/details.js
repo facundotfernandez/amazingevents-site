@@ -28,11 +28,11 @@ async function init_DetailsPage() {
         const event = data.events.find(event => event._id == event_id)
 
         CardMainDetails.innerHTML = `
-        <div class="d-flex align-items-center h-100 w-100">
-            <div class="col d-none d-md-block border h-100 rounded-3 mx-2">
-                <img src="${event.image}" class="card-img h-100" alt="${event.name} Event Image" id="CardMainDetails-image">
+        <div class="row row-cols-1 row-cols-md-2 g-2">
+            <div class="col border rounded-3 p-0">
+                <img src="${event.image}" class="card-img h-100 rounded-3" alt="${event.name} Event Image" id="CardMainDetails-image">
             </div>
-            <div class="col border rounded-3 h-100 d-flex flex-column justify-content-between">
+            <div class="col border rounded-3 p-0 justify-content-between">
                 <h5 class="card-title fs-1 m-4">${event.name}</h5>
                 <p class="card-text fs-3 mx-4">${event.description}</p>
                 <p class="card-text fs-5 mx-4">Date: ${event.date}</p>
