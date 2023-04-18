@@ -64,6 +64,10 @@ main {
     min-height: 73vh;
 }
 
+#ToastMainIcon {
+    height: 1rem !important;
+}
+
 #NavMainCategories .categories-category {
     color: rgba(248, 249, 250, .75) !important;
 }

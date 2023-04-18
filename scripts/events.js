@@ -78,6 +78,8 @@ function update_EventsShown() {
     let EventsHTMLSection = "";
     let CheckboxGroupChecked = [...document.querySelectorAll("input[class = btn-check]:checked")].map(category => category.value);
     let SearchInputValue = document.getElementById("SearchInput").value.toLowerCase();
+    let toastLiveExample = document.getElementById('ToastMainAlert')
+    let toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
 
     EventsAvailable.forEach(event => {
 
@@ -105,7 +107,7 @@ function update_EventsShown() {
 
     if (EventsHTMLSection == "") {
 
-        alert("Adjust the filters to find an event")
+        toastBootstrap.show()
 
     };
 

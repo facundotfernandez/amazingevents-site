@@ -49,6 +49,17 @@
         <input class="form-control search-input me-2 px-2" type="search" placeholder="Search" aria-label="Categories Search" id="SearchInput">
       </form>
     </nav>
+    <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x mb-2">
+      <div id="ToastMainAlert" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <img src="assets/main-icon.png" class="rounded me-2" alt="Amazing Events Icon" id="ToastMainIcon">
+          <strong class="me-auto">Amazing Events</strong>
+          <small>Just Now</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">Adjust the filters to find an event</div>
+      </div>
+    </div>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 mt-0 g-4 text-center justify-content-center" id="CardMainGroup">
     </div>
   </main>
