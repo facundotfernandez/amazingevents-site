@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -7,75 +7,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="./assets/main-icon.png" type="image/x-icon">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="styles/main.css">
   <title>Past Events</title>
 </head>
 
-<body class="mt-4">
-  <header class="mx-4 mb-4">
-    <nav class="navbar navbar-expand-lg mb-4 p-0">
-      <div class="container-fluid px-0">
-        <a class="navbar-brand me-0 py-1 px-2" href="./index.html"><img src="./assets/main-logo.png" alt="Amazing Events Logo" id="NavHeaderPages-SiteLogo"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#NavHeaderPages" aria-controls="NavHeaderPages" aria-expanded="false" aria-label="Toggle navigation" id="NavHeaderPages-CollapseIcon">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end text-center" id="NavHeaderPages">
-          <div class="navbar-nav nav-pills my-2 my-lg-0 gap-2">
-            <a class="nav-link py-1 px-2 pages-page" href="./index.html">Home</a>
-            <a class="nav-link py-1 px-2 pages-page" href="./upcoming-events.html">Upcoming Events</a>
-            <a class="nav-link py-1 px-2 pages-page active" href="#top">Past Events</a>
-            <a class="nav-link py-1 px-2 pages-page" href="./contact.html">Contact</a>
-            <a class="nav-link py-1 px-2 pages-page" href="./stats.html">Stats</a>
+<body>
+  <header>
+  </header>
+  <main>
+    <div class="events-main">
+      <aside>
+        <nav class="navbar">
+          <div class="navbar-pages">
+            <a href="./index.html"><img src="./assets/main-icon.png" alt="Home">Home</a>
+            <a href="./upcoming-events.html"><img src="./assets/icon_upcoming_events.png" alt="Next Events">Upcoming<br>Events</a>
+            <a href="#top" class="active"><img src="./assets/icon_past_events.png" alt="Past Events">Past<br>Events</a>
+            <a href="./stats.html"><img src="./assets/icon_stats.png" alt="Stats">Stats</a>
+            <a href="./contact.html"><img src="./assets/icon_contact.png" alt="Contact">Contact</a>
+            <span id="Theme"><img src="./assets/icon_theme.png" alt="Switch Theme">Theme</span>
+          </div>
+          <div class="navbar-footer">
+            <div class="navbar-social">
+              <a href="https://www.twitter.com/" target="_blank"><img src="./assets/twitter-icon.svg" alt="Twitter"></a>
+              <a href="https://www.instagram.com/" target="_blank"><img src="./assets/instagram-icon.svg" alt="Instagram"></a>
+              <a href="https://www.facebook.com/" target="_blank"><img src="./assets/facebook-icon.svg" alt="Facebook"></a>
+              <a href="https://www.whatsapp.com/" target="_blank"><img src="./assets/whatsapp-icon.svg" alt="Whatsapp"></a>
+            </div>
+            <a class="navbar-mindhub" href="https://mindhubweb.com/" target="_blank">FE13-TN</a>
+          </div>
+        </nav>
+      </aside>
+      <div class="events-section">
+        <div class="events-categories">
+          <div id="CategoriesButtons"></div>
+          <form id="CategoriesSearch" class="searchbar">
+            <input id="SearchInput" placeholder="Search">
+            <span id="SearchIcon"><img src="./assets/search-icon.svg" alt="Search Icon"></span>
+          </form>
+        </div>
+        <div class="events">
+          <ul id="Events" class="events-cards"></ul>
+        </div>
+        <div class="toast-container">
+          <div id="Toast">
+            <div class="toast-header">
+              <img src="assets/main-icon.png" alt="Amazing Events Icon" id="ToastMainIcon">
+              <strong>Amazing Events</strong>
+              <small>Just Now</small>
+            </div>
+            <div class="toast-body">Adjust the filters to find an event</div>
           </div>
         </div>
       </div>
-    </nav>
-    <nav class="navbar m-0 p-0" id="NavHeaderArrows">
-      <div class="container-fluid mx-2 p-0">
-        <a class="arrows-arrowcontainer rounded-3" href="./upcoming-events.html"><img class="arrows-arrow py-1 px-2" src="./assets/chevron-left.svg" alt="Nav Button Previous Page"></a>
-        <a href="#top">
-          <h1 class="m-0 py-2 px-4 rounded-3" id="NavHeaderArrows-Title">Past Events</h1>
-        </a>
-        <a class="arrows-arrowcontainer rounded-3" href="./contact.html"><img class="arrows-arrow py-1 px-2" src="./assets/chevron-right.svg" alt="Nav Button Next Page"></a>
-      </div>
-    </nav>
-  </header>
-  <main class="mx-4 mb-4">
-    <nav class="navbar bg-body-tertiary px-3 rounded-3 row row-cols-2">
-      <div class="btn-group-sm col-12 col-md-8 col-lg-9" role="group" aria-label="Categories Checkbox toggle button group" id="NavMainCategories">
-      </div>
-      <form class="d-flex col-12 col-md-4 col-lg-3 justify-content-center align-items-center pt-2 pt-md-0" role="search" id="NavMainSearch">
-        <input class="form-control search-input me-2 px-2" type="search" placeholder="Search" aria-label="Categories Search" id="SearchInput">
-      </form>
-    </nav>
-    <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x mb-2">
-      <div id="ToastMainAlert" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-          <img src="assets/main-icon.png" class="rounded me-2" alt="Amazing Events Icon" id="ToastMainIcon">
-          <strong class="me-auto">Amazing Events</strong>
-          <small>Just Now</small>
-          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body">Adjust the filters to find an event</div>
-      </div>
-    </div>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 mt-0 g-4 text-center justify-content-center" id="CardMainGroup">
     </div>
   </main>
-  <footer class="bg-body-tertiary container-fluid py-2">
-    <div class="d-flex justify-content-center justify-content-sm-between align-items-center mx-4">
-      <div class="d-flex gap-3" id="MediaFooterLinks">
-        <a class="navbar-brand links-link rounded-circle" href="https://www.twitter.com/" target="_blank"><img class="links-linkicon rounded-circle" src="./assets/twitter-icon.svg" alt="Twitter Link"></a>
-        <a class="navbar-brand links-link rounded-circle" href="https://www.instagram.com/" target="_blank"><img class="links-linkicon rounded-circle" src="./assets/instagram-icon.svg" alt="Instagram Link"></a>
-        <a class="navbar-brand links-link rounded-circle" href="https://www.facebook.com/" target="_blank"><img class="links-linkicon rounded-circle" src="./assets/facebook-icon.svg" alt="Facebook Link"></a>
-        <a class="navbar-brand links-link rounded-circle" href="https://www.whatsapp.com/" target="_blank"><img class="links-linkicon rounded-circle" src="./assets/whatsapp-icon.svg" alt="Whatsapp Link"></a>
-      </div>
-      <h3 class="mb-0 d-none d-sm-block">FE13-TN</h3>
-    </div>
-  </footer>
   <script type="module" src="./scripts/events.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 
 </html>

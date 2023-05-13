@@ -22,28 +22,40 @@ async function init_DetailsPage() {
 
     try {
 
+        const theme = sessionStorage.getItem('theme')
+
+        if (theme == "light") {
+            document.body.className = "light-theme"
+        }
+
         const data = await obtain_EventsData()
 
         const event_id = new URLSearchParams(location.search).get("id")
         const event = data.events.find(event => event._id == event_id)
 
-        CardMainDetails.innerHTML = `
-        <div class="row row-cols-1 row-cols-md-2 g-2">
-            <div class="col border rounded-3 p-0">
-                <img src="${event.image}" class="card-img h-100 rounded-3" alt="${event.name} Event Image" id="CardMainDetails-image">
+        EventDetails.innerHTML = `
+        <div class="card">
+            <div class="card-image details">
+                <img src="${event.image}" alt="${event.name} Event Image">
+                <a href="./contact.html" class="card-contact details">Buy your ticket</a>
             </div>
-            <div class="col border rounded-3 p-0 justify-content-between">
-                <h5 class="card-title fs-1 m-4">${event.name}</h5>
-                <p class="card-text fs-3 mx-4">${event.description}</p>
-                <p class="card-text fs-5 mx-4">Date: ${event.date}</p>
-                <p class="card-text fs-5 mx-4">Category: ${event.category}</p>
-                <p class="card-text fs-5 mx-4">Place: ${event.place}</p>
-                <p class="card-text fs-5 mx-4">Capacity: ${event.capacity}</p>
-                <p class="card-text fs-5 mx-4">Assistance: ${(event.hasOwnProperty("assistance")) ? event.assistance : event.estimate}</p>
-                <p class="card-text fs-5 mb-4 mx-4">Price: $ ${event.price}</p>
+            <div class="card-content details">
+                <h2 class="card-title details">${event.name}</h2>
+                <div class="card-text details">
+                    <p>${event.description}</p>
+                    <p>Date: ${event.date}</p>
+                    <p>Category: ${event.category}</p>
+                    <p>Place: ${event.place}</p>
+                    <p>Capacity: ${event.capacity}</p>
+                    <p>Assistance: ${(event.hasOwnProperty("assistance")) ? event.assistance : event.estimate}</p>
+                    <p>Price: $ ${event.price}</p>
+                </div>
             </div>
         </div>
         `;
+
+        const SwitchTheme = document.getElementById("Theme")
+        SwitchTheme.addEventListener("click", switch_Theme)
 
     } catch (error) {
 
@@ -51,6 +63,14 @@ async function init_DetailsPage() {
 
     };
 
+};
+
+function switch_Theme() {
+
+    const theme = sessionStorage.getItem('theme');
+    document.body.className == "" ? document.body.className = "light-theme" : document.body.className = ""
+    theme == null ? sessionStorage.setItem("theme", "light") : sessionStorage.removeItem('theme');
+    
 };
 
 init_DetailsPage()

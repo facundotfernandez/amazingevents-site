@@ -22,23 +22,29 @@ async function init_StatsPage() {
 
     try {
 
+        const theme = sessionStorage.getItem('theme')
+
+        if (theme == "light") {
+            document.body.className = "light-theme"
+        }
+
         const data = await obtain_EventsData()
 
         let EventStatsHTMLSection = `
-        <tr class="text-bg-secondary">
+        <tr class="stats-column-header">
             <td>Event with the highest percentage of attendance</td>
             <td>Event with the lowest percentage of attendance</td>
             <td>Event with larger capacity</td>
         </tr>
         `
         let UpcomingStatsHTMLSection = `
-        <tr class="text-bg-secondary">
+        <tr class="stats-column-header">
             <td>Categories</td>
             <td>Revenues</td>
             <td>Percentage of attendance</td>
         </tr>`
         let PastStatsHTMLSection = `
-        <tr class="text-bg-secondary">
+        <tr class="stats-column-header">
             <td>Categories</td>
             <td>Revenues</td>
             <td>Percentage of attendance</td>
@@ -112,6 +118,9 @@ async function init_StatsPage() {
 
             };
 
+            const SwitchTheme = document.getElementById("Theme")
+            SwitchTheme.addEventListener("click", switch_Theme)
+
         });
 
         Object.keys(UpcomingEventsStatsByCat).forEach(category => {
@@ -155,6 +164,14 @@ async function init_StatsPage() {
         console.log(error);
 
     };
+
+};
+
+function switch_Theme() {
+
+    const theme = sessionStorage.getItem('theme');
+    document.body.className == "" ? document.body.className = "light-theme" : document.body.className = ""
+    theme == null ? sessionStorage.setItem("theme", "light") : sessionStorage.removeItem('theme');
 
 };
 

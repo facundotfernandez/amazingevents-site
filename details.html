@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -7,48 +7,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="./assets/main-icon.png" type="image/x-icon">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="styles/main.css">
   <title>Details</title>
 </head>
 
-<body class="mt-4">
-  <header class="mx-4 mb-4">
-    <nav class="navbar navbar-expand-lg mb-4 p-0">
-      <div class="container-fluid px-0">
-        <a class="navbar-brand me-0 py-1 px-2" href="./index.html"><img src="./assets/main-logo.png" alt="Amazing Events Logo" id="NavHeaderPages-SiteLogo"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#NavHeaderPages" aria-controls="NavHeaderPages" aria-expanded="false" aria-label="Toggle navigation" id="NavHeaderPages-CollapseIcon">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end text-center" id="NavHeaderPages">
-          <div class="navbar-nav nav-pills my-2 my-lg-0 gap-2">
-            <a class="nav-link py-1 px-2 pages-page" href="./index.html">Home</a>
-            <a class="nav-link py-1 px-2 pages-page" href="./upcoming-events.html">Upcoming Events</a>
-            <a class="nav-link py-1 px-2 pages-page" href="./past-events.html">Past Events</a>
-            <a class="nav-link py-1 px-2 pages-page" href="./contact.html">Contact</a>
-            <a class="nav-link py-1 px-2 pages-page" href="./stats.html">Stats</a>
-          </div>
-        </div>
-      </div>
-    </nav>
+<body>
+  <header>
   </header>
-  <main class="d-flex justify-content-center">
-    <div class="mt-0 p-4 w-75 text-center justify-content-center" id="CardMainDetails">
+  <main>
+    <div class="events-main">
+      <aside>
+        <nav class="navbar">
+          <div class="navbar-pages">
+            <a href="./index.html"><img src="./assets/main-icon.png" alt="Home">Home</a>
+            <a href="./upcoming-events.html"><img src="./assets/icon_upcoming_events.png" alt="Next Events">Upcoming<br>Events</a>
+            <a href="./past-events.html"><img src="./assets/icon_past_events.png" alt="Past Events">Past<br>Events</a>
+            <a href="./stats.html"><img src="./assets/icon_stats.png" alt="Stats">Stats</a>
+            <a href="./contact.html"><img src="./assets/icon_contact.png" alt="Contact">Contact</a>
+            <span id="Theme"><img src="./assets/icon_theme.png" alt="Switch Theme">Theme</span>
+          </div>
+          <div class="navbar-footer">
+            <div class="navbar-social">
+              <a href="https://www.twitter.com/" target="_blank"><img src="./assets/twitter-icon.svg" alt="Twitter"></a>
+              <a href="https://www.instagram.com/" target="_blank"><img src="./assets/instagram-icon.svg" alt="Instagram"></a>
+              <a href="https://www.facebook.com/" target="_blank"><img src="./assets/facebook-icon.svg" alt="Facebook"></a>
+              <a href="https://www.whatsapp.com/" target="_blank"><img src="./assets/whatsapp-icon.svg" alt="Whatsapp"></a>
+            </div>
+            <a class="navbar-mindhub" href="https://mindhubweb.com/" target="_blank">FE13-TN</a>
+          </div>
+        </nav>
+      </aside>
+      <div class="events details">
+        <div id="EventDetails" class="event details"></div>
+      </div>
     </div>
   </main>
-  <footer class="bg-body-tertiary container-fluid py-2" id="DetailsFooter">
-    <div class="d-flex justify-content-center justify-content-sm-between align-items-center mx-4">
-      <div class="d-flex gap-3" id="MediaFooterLinks">
-        <a class="navbar-brand links-link rounded-circle" href="https://www.twitter.com/" target="_blank"><img class="links-linkicon rounded-circle" src="./assets/twitter-icon.svg" alt="Twitter Link"></a>
-        <a class="navbar-brand links-link rounded-circle" href="https://www.instagram.com/" target="_blank"><img class="links-linkicon rounded-circle" src="./assets/instagram-icon.svg" alt="Instagram Link"></a>
-        <a class="navbar-brand links-link rounded-circle" href="https://www.facebook.com/" target="_blank"><img class="links-linkicon rounded-circle" src="./assets/facebook-icon.svg" alt="Facebook Link"></a>
-        <a class="navbar-brand links-link rounded-circle" href="https://www.whatsapp.com/" target="_blank"><img class="links-linkicon rounded-circle" src="./assets/whatsapp-icon.svg" alt="Whatsapp Link"></a>
-      </div>
-      <h3 class="mb-0 d-none d-sm-block">FE13-TN</h3>
-    </div>
-  </footer>
   <script type="module" src="./scripts/details.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 
 </html>

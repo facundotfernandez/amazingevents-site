@@ -22,6 +22,12 @@ async function init_EventsPage() {
 
     try {
 
+        const theme = sessionStorage.getItem('theme')
+
+        if (theme == "light") {
+            document.body.className = "light-theme"
+        }
+        
         const data = await obtain_EventsData()
 
         let EventsGroup = []
@@ -38,8 +44,10 @@ async function init_EventsPage() {
                     CategoriesGroup.push(event.category)
 
                     CategoriesHTMLSection += `
-                        <input type="checkbox" class="btn-check" id="btncheck-${event._id}" value="${event.category}">
-                        <label class="btn categories-category" for="btncheck-${event._id}">${event.category}</label>
+                        <span class="categories-category">
+                            <input type="checkbox" class="btn-check" id="btncheck-${event._id}" value="${event.category}">
+                            <label class="btn categories-category" for="btncheck-${event._id}">${event.category}</label>
+                        </span>
                     `;
 
                 };
@@ -50,10 +58,11 @@ async function init_EventsPage() {
 
         });
 
-        document.getElementById("NavMainCategories").innerHTML = CategoriesHTMLSection
+        document.getElementById("CategoriesButtons").innerHTML = CategoriesHTMLSection
 
         const CheckboxGroup = [...document.querySelectorAll("input[class = btn-check")]
         const SearchInput = document.getElementById("SearchInput")
+        const SwitchTheme = document.getElementById("Theme")
 
         CheckboxGroup.forEach(checkbox => {
 
@@ -62,6 +71,7 @@ async function init_EventsPage() {
         });
 
         SearchInput.addEventListener("keyup", update_EventsShown)
+        SwitchTheme.addEventListener("click", switch_Theme)
 
         return EventsGroup
 
@@ -78,27 +88,27 @@ function update_EventsShown() {
     let EventsHTMLSection = "";
     let CheckboxGroupChecked = [...document.querySelectorAll("input[class = btn-check]:checked")].map(category => category.value);
     let SearchInputValue = document.getElementById("SearchInput").value.toLowerCase();
-    let toastLiveExample = document.getElementById('ToastMainAlert')
-    let toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
 
     EventsAvailable.forEach(event => {
 
         if ((CheckboxGroupChecked.length == 0 || CheckboxGroupChecked.includes(event.category)) && (SearchInputValue.length == 0 || (event.name.toLowerCase()).includes(SearchInputValue))) {
 
             EventsHTMLSection += `
-                <div class="col">
-                    <div class="card h-100 w-100">
-                        <img src="${event.image}" class="card-img p-2 rounded-5" alt="${event.name} Event Image">
-                        <div class="card-body d-flex flex-column justify-content-between">
-                            <p class="card-title fs-4">${event.name}</p>
-                            <p class="card-text">${event.description}</p>
-                            <div class="card-footer d-flex justify-content-between">
-                                <p class="card-text my-0 py-1 px-2"">$ ${event.price}</p>
-                                <a class="card-text see-more py-1 px-2 rounded-3" href="./details.html?id=${event._id}">See more</a>
+                <li class="events-cards-item">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="${event.image}" alt="${event.name} Event Image">
+                            <span class="card-price"><span>$</span>${event.price}</span>
+                            <a href="./details.html?id=${event._id}" class="card-see-more">See more</a>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="card-title">${event.name}</h2>
+                            <div class="card-text">
+                                <p>${event.description}</p>
                             </div>
                         </div>
                     </div>
-                </div>
+                </li>
             `;
 
         };
@@ -107,12 +117,22 @@ function update_EventsShown() {
 
     if (EventsHTMLSection == "") {
 
-        toastBootstrap.show()
+        const toast = document.getElementById("Toast");
+        toast.className = "show";
+        setTimeout(function () { toast.className = toast.className.replace("show", ""); }, 3000);
 
     };
 
-    document.getElementById("CardMainGroup").innerHTML = EventsHTMLSection
+    document.getElementById("Events").innerHTML = EventsHTMLSection
 
+};
+
+function switch_Theme() {
+
+    const theme = sessionStorage.getItem('theme');
+    document.body.className == "" ? document.body.className = "light-theme" : document.body.className = ""
+    theme == null ? sessionStorage.setItem("theme", "light") : sessionStorage.removeItem('theme');
+    
 };
 
 const EventsAvailable = await init_EventsPage()
