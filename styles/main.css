@@ -29,7 +29,7 @@
 }
 
 body::-webkit-scrollbar {
-    width: .5vw;
+    width: .75rem;
 }
 
 body::-webkit-scrollbar-track {
@@ -38,7 +38,7 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
     background-color: var(--accent-color);
-    border: 0.15vw solid var(--darkest-color);
+    border: .25rem solid var(--darkest-color);
     border-radius: 1rem;
 }
 
@@ -46,10 +46,37 @@ body {
     background-color: var(--darker-color);
 }
 
+#LoadingScreen {
+    position: absolute;
+    top: 0;
+    margin-left: 5rem;
+    width: 95vw !important;
+    height: 100vh !important;
+    z-index: 3;
+    background-color: var(--dark-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1rem;
+    font-size: 1.5rem;
+    color: var(--lighter-color);
+}
+
+.loader {
+    border: 16px solid var(--accent-color);
+    border-top: 16px solid var(--dark-color);
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
 .events-main {
     display: inline-flex;
     background-color: var(--dark-color);
     width: 100%;
+    z-index: 2;
 }
 
 .events-main>aside {
@@ -69,7 +96,7 @@ body {
     font-weight: bold;
 }
 
-.navbar *{
+.navbar * {
     color: var(--lighter-color);
 }
 
@@ -95,7 +122,7 @@ body {
     padding: 0 .5rem 0 .5rem;
     height: 8vh;
     text-decoration: none;
-    
+
 }
 
 .navbar-pages a.active {
@@ -573,7 +600,8 @@ body {
     font-size: 1.1rem;
 }
 
-.contact-input, .contact-textarea {
+.contact-input,
+.contact-textarea {
     background-color: var(--dark-color);
     border: 1px solid var(--lighter-color-75);
     border-radius: .5rem;
@@ -588,7 +616,8 @@ body {
     max-height: 50vh;
 }
 
-.contact-input:focus, .contact-textarea:focus {
+.contact-input:focus,
+.contact-textarea:focus {
     border: 1px solid var(--accent-color);
     outline: 1px solid var(--accent-color);
 }
@@ -661,6 +690,16 @@ body {
     justify-content: center;
     align-items: center;
     padding-bottom: .5rem;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @-webkit-keyframes fadein {

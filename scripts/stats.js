@@ -22,6 +22,8 @@ async function init_StatsPage() {
 
     try {
 
+        const LoadingScreen = document.getElementById("LoadingScreen")
+
         const theme = sessionStorage.getItem('theme')
 
         if (theme == "light") {
@@ -158,6 +160,8 @@ async function init_StatsPage() {
         document.getElementById("EventStatsMainTable-Body").innerHTML = EventStatsHTMLSection
         document.getElementById("UpcomingStatsMainTable-Body").innerHTML = UpcomingStatsHTMLSection
         document.getElementById("PastStatsMainTable-Body").innerHTML = PastStatsHTMLSection
+
+        LoadingScreen.style.display = "none"
 
     } catch (error) {
 

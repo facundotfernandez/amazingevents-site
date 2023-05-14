@@ -22,6 +22,8 @@ async function init_DetailsPage() {
 
     try {
 
+        const LoadingScreen = document.getElementById("LoadingScreen")
+
         const theme = sessionStorage.getItem('theme')
 
         if (theme == "light") {
@@ -56,6 +58,8 @@ async function init_DetailsPage() {
 
         const SwitchTheme = document.getElementById("Theme")
         SwitchTheme.addEventListener("click", switch_Theme)
+
+        LoadingScreen.style.display = "none"
 
     } catch (error) {
 

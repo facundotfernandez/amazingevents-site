@@ -22,6 +22,8 @@ async function init_EventsPage() {
 
     try {
 
+        const LoadingScreen = document.getElementById("LoadingScreen")
+        
         const theme = sessionStorage.getItem('theme')
 
         if (theme == "light") {
@@ -72,6 +74,8 @@ async function init_EventsPage() {
 
         SearchInput.addEventListener("keyup", update_EventsShown)
         SwitchTheme.addEventListener("click", switch_Theme)
+
+        LoadingScreen.style.display = "none"
 
         return EventsGroup
 
