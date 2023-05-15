@@ -692,7 +692,7 @@ body {
 }
 
 @keyframes spin {
-    
+
     0% {
         transform: rotate(0deg);
     }
@@ -816,40 +816,40 @@ body {
         from {
             opacity: 0;
         }
-    
+
         to {
             opacity: 1;
         }
     }
-    
+
     @keyframes fadein {
-    
+
         from {
             opacity: 0;
         }
-    
+
         to {
             opacity: 1;
         }
     }
-    
+
     @-webkit-keyframes fadeout {
-    
+
         from {
             opacity: 1;
         }
-    
+
         to {
             opacity: 0;
         }
     }
-    
+
     @keyframes fadeout {
-    
+
         from {
             opacity: 1;
         }
-    
+
         to {
             opacity: 0;
         }
