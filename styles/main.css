@@ -324,7 +324,7 @@ body {
 
 .event.details {
     display: flex;
-    padding: 3rem 1rem;
+    padding: 2rem .5rem;
     text-align: center;
     justify-content: center;
     width: 100%;
