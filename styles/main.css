@@ -47,11 +47,7 @@ body {
 }
 
 #LoadingScreen {
-    position: absolute;
-    top: 0;
-    margin-left: 5rem;
-    width: 95vw !important;
-    height: 100vh !important;
+    height: 100vh;
     z-index: 3;
     background-color: var(--dark-color);
     display: flex;
@@ -122,7 +118,6 @@ body {
     padding: 0 .5rem 0 .5rem;
     height: 8vh;
     text-decoration: none;
-
 }
 
 .navbar-pages a.active {
@@ -159,6 +154,7 @@ body {
 
 .navbar img {
     width: 2rem;
+    height: 2rem;
 }
 
 .navbar-footer {
@@ -213,7 +209,10 @@ body {
 .events-categories {
     background-color: var(--darker-color);
     color: var(--lighter-text);
-    border-radius: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    border-radius: 0 0 1rem 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -790,5 +789,11 @@ body {
 @media (min-width: 1440px) {
     .events-cards-item {
         width: 24%;
+    }
+}
+
+@media (max-width: 768px) {
+    #CategoriesButtons label:hover {
+        background-color: var(--darker-color);
     }
 }
