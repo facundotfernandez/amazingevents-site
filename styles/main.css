@@ -692,6 +692,7 @@ body {
 }
 
 @keyframes spin {
+    
     0% {
         transform: rotate(0deg);
     }
@@ -702,6 +703,7 @@ body {
 }
 
 @-webkit-keyframes fadein {
+
     from {
         bottom: 0;
         opacity: 0;
@@ -714,6 +716,7 @@ body {
 }
 
 @keyframes fadein {
+
     from {
         bottom: 0;
         opacity: 0;
@@ -726,6 +729,7 @@ body {
 }
 
 @-webkit-keyframes fadeout {
+
     from {
         bottom: 1.5vh;
         opacity: 1;
@@ -738,6 +742,7 @@ body {
 }
 
 @keyframes fadeout {
+
     from {
         bottom: 1.5vh;
         opacity: 1;
@@ -750,12 +755,14 @@ body {
 }
 
 @media (min-width: 375px) {
+
     .categories-category * {
         font-size: .8rem;
     }
 }
 
 @media (min-width: 600px) {
+
     .events-cards-item {
         width: 45%;
     }
@@ -781,18 +788,21 @@ body {
 }
 
 @media (min-width: 1024px) {
+
     .events-categories {
         justify-content: space-between;
     }
 }
 
 @media (min-width: 1440px) {
+
     .events-cards-item {
         width: 24%;
     }
 }
 
 @media (max-width: 768px) {
+
     #CategoriesButtons label:hover {
         background-color: var(--darker-color);
     }
