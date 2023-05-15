@@ -806,4 +806,52 @@ body {
     #CategoriesButtons label:hover {
         background-color: var(--darker-color);
     }
+
+    #Toast {
+        bottom: 50vh;
+    }
+
+    @-webkit-keyframes fadein {
+
+        from {
+            opacity: 0;
+        }
+    
+        to {
+            opacity: 1;
+        }
+    }
+    
+    @keyframes fadein {
+    
+        from {
+            opacity: 0;
+        }
+    
+        to {
+            opacity: 1;
+        }
+    }
+    
+    @-webkit-keyframes fadeout {
+    
+        from {
+            opacity: 1;
+        }
+    
+        to {
+            opacity: 0;
+        }
+    }
+    
+    @keyframes fadeout {
+    
+        from {
+            opacity: 1;
+        }
+    
+        to {
+            opacity: 0;
+        }
+    }
 }
