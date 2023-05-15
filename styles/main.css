@@ -807,6 +807,10 @@ body {
         background-color: var(--darker-color);
     }
 
+    #Theme:hover {
+        background-color: var(--darkest-color);
+    }
+
     #Toast {
         bottom: 50vh;
     }
