@@ -137,7 +137,8 @@ body {
 }
 
 .navbar-pages a:first-child:hover {
-    border-radius: 0 1rem 0 0;}
+    border-radius: 0 1rem 0 0;
+}
 
 #Theme {
     text-align: center;
