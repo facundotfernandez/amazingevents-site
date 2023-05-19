@@ -60,8 +60,8 @@ body {
 }
 
 .loader {
-    border: 16px solid var(--accent-color);
-    border-top: 16px solid var(--dark-color);
+    border: 16px solid var(--accent-color-50);
+    border-top: 16px solid var(--accent-color);
     border-radius: 50%;
     width: 120px;
     height: 120px;
