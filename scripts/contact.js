@@ -1,6 +1,6 @@
 function init_ContactPage() {
 
-    const theme = sessionStorage.getItem('theme')
+    const theme = localStorage.getItem('theme')
 
     if (theme == "light") {
         document.body.className = "light-theme"
@@ -12,9 +12,9 @@ function init_ContactPage() {
 
 function switch_Theme() {
 
-    const theme = sessionStorage.getItem('theme');
+    const theme = localStorage.getItem('theme');
     document.body.className == "" ? document.body.className = "light-theme" : document.body.className = ""
-    theme == null ? sessionStorage.setItem("theme", "light") : sessionStorage.removeItem('theme');
+    theme == null ? localStorage.setItem("theme", "light") : localStorage.removeItem('theme');
 
 };
 
